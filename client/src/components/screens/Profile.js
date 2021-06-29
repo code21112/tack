@@ -153,7 +153,7 @@ const Profile = () => {
       {loading ? (
         <Loader />
       ) : (
-        <div style={{ maxWidth: "550px", margin: "0 auto" }}>
+        <div style={{ maxWidth: "550px", margin: "0 auto" }} id="profile-div">
           <div
             style={{
               display: "flex",
