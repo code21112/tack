@@ -166,9 +166,9 @@ const Profile = () => {
               <img
                 src={state.pic}
                 style={{
-                  height: "160px",
-                  width: "160px",
-                  borderRadius: "80px",
+                  height: "120px",
+                  width: "120px",
+                  borderRadius: "60px",
                 }}
               />
               {loadingPic ? (
