@@ -195,7 +195,7 @@ const Profile = () => {
                 </div>
               )}
             </div>
-            <div>
+            <div style={{ marginLeft: "10px" }}>
               {/* <h4>{profile ? profile.result.name : "Loading..."}</h4> */}
               {/* <h4>{state ? state.result.name : "Loading..."}</h4> */}
               <h4>{state ? state.name : "Loading..."}</h4>
@@ -205,6 +205,7 @@ const Profile = () => {
                   display: "flex",
                   justifyContent: "space-between",
                   width: "108%",
+                  marginLeft: "10px",
                 }}
               >
                 {/* <h6>{myTacks ? myTacks.length : "0"} posts</h6> */}
