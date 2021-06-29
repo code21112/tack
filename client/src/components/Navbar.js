@@ -10,14 +10,29 @@ const Navbar = () => {
     if (state) {
       return [
         <li key="1">
-          <Link to="/tack/create">New tack</Link>
+          {/* <Link to="/tack/create">New tack</Link> */}
+          <Link to="/tack/create">
+            <i class="medium material-icons" style={{ color: "#4db6ac" }}>
+              add_circle_outline
+            </i>
+          </Link>
         </li>,
         <li key="2">
-          <Link to="/my-followed-posts">My followed Tacks</Link>
+          {/* <Link to="/my-followed-posts">Followed</Link> */}
+          <Link to="/tack/create">
+            <i class="medium material-icons" style={{ color: "#546e7a" }}>
+              people
+            </i>
+          </Link>
+          \{" "}
         </li>,
         <li key="3">
+          {/* <Link to="/my-profile">Profile</Link> */}
+
           <Link to="/my-profile" id="profile-link">
-            Profile
+            <i class="medium material-icons" style={{ color: "#546e7a" }}>
+              account_circle
+            </i>
           </Link>
         </li>,
         <li key="4">
