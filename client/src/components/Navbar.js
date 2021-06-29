@@ -19,7 +19,7 @@ const Navbar = () => {
         </li>,
         <li key="2">
           {/* <Link to="/my-followed-posts">Followed</Link> */}
-          <Link to="/tack/create">
+          <Link to="/my-followed-posts">
             <i class="medium material-icons" style={{ color: "#546e7a" }}>
               people
             </i>
