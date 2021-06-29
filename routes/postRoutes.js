@@ -6,7 +6,7 @@ const { authMiddleware } = require("./../middlewares/authMiddleware");
 
 router.post("/post/create", authMiddleware, (req, res) => {
   const { title, body, url } = req.body;
-  console.log(title, body, url);
+  // console.log(title, body, url);
   if (!title || !body || !url) {
     return res.status(422).json({
       error: "Please fill all the fields",
@@ -93,7 +93,7 @@ router.put("/like", authMiddleware, (req, res) => {
     }
   )
     .populate("comments.postedBy", "_id name")
-    .populate("postedBy", "_id name")
+    .populate("postedBy", "_id name pic")
     .exec((err, result) => {
       if (err) {
         return res.status(422).json({ error: err });
@@ -143,7 +143,7 @@ router.put("/unlike", authMiddleware, (req, res) => {
     }
   )
     .populate("comments.postedBy", "_id name")
-    .populate("postedBy", "_id name")
+    .populate("postedBy", "_id name pic")
     .exec((err, result) => {
       if (err) {
         return res.status(422).json({ error: err });

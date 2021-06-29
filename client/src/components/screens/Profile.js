@@ -54,7 +54,7 @@ const Profile = () => {
   const [loading, setLoading] = useState(true);
   const [loadingPic, setLoadingPic] = useState(false);
   const [image, setImage] = useState("");
-  console.log("state inside Profile", state);
+  // console.log("state inside Profile", state);
 
   useEffect(() => {
     // const user = localStorage.getItem("user");
@@ -66,9 +66,9 @@ const Profile = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log("data within the fetch my-posts Profile", data);
+        // console.log("data within the fetch my-posts Profile", data);
         setMyTacks(data.posts);
-        console.log("myTacks", myTacks);
+        // console.log("myTacks", myTacks);
         setLoading(false);
       })
       .catch((err) => {
@@ -89,7 +89,7 @@ const Profile = () => {
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log("data within 2e useEffect Profile", data);
+          // console.log("data within 2e useEffect Profile", data);
           if (data.error) {
             setLoadingPic(false);
             M.toast({
@@ -107,10 +107,10 @@ const Profile = () => {
             })
               .then((response) => response.json())
               .then((data) => {
-                console.log(
-                  "data within 2e fetch useEffect Profile ==> /updatepic",
-                  data
-                );
+                // console.log(
+                //   "data within 2e fetch useEffect Profile ==> /updatepic",
+                //   data
+                // );
                 localStorage.setItem(
                   "user",
                   JSON.stringify({ ...state, pic: data.pic })

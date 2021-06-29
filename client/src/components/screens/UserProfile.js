@@ -25,7 +25,7 @@ const UserProfile = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log("data within the fetch UserProfile", data);
+        // console.log("data within the fetch UserProfile", data);
         setProfile(data);
         setLoading(false);
       });
@@ -42,7 +42,7 @@ const UserProfile = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log("data within followUser", data);
+        // console.log("data within followUser", data);
         if (data.message) {
           setShowFollow(false);
           return M.toast({
@@ -55,9 +55,9 @@ const UserProfile = () => {
           payload: { following: data.following, followers: data.followers },
         });
         localStorage.setItem("user", JSON.stringify(data));
-        console.log("state within followUser", state);
+        // console.log("state within followUser", state);
         setProfile((prevState) => {
-          console.log("prevState within setProfile", prevState);
+          // console.log("prevState within setProfile", prevState);
           return {
             ...prevState,
             user: {
@@ -84,15 +84,15 @@ const UserProfile = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log("data within unfollowUser", data);
+        // console.log("data within unfollowUser", data);
         dispatch({
           type: "UPDATE",
           payload: { following: data.following, followers: data.followers },
         });
         localStorage.setItem("user", JSON.stringify(data));
-        console.log("state within unfollowUser", state);
+        // console.log("state within unfollowUser", state);
         setProfile((prevState) => {
-          console.log("prevState within setProfile unfollowUser", prevState);
+          // console.log("prevState within setProfile unfollowUser", prevState);
           const newFollowers = prevState.user.followers.filter(
             (follower) => follower !== data._id
           );

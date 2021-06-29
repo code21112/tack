@@ -156,7 +156,7 @@ const FollowedPosts = () => {
     })
       .then((response) => response.json())
       .then((result) => {
-        console.log("result in useEffect FollowedPosts", result);
+        // console.log("result in useEffect FollowedPosts", result);
         setData(result.posts);
         setLoading(false);
       })

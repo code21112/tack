@@ -40,7 +40,7 @@ const Home = () => {
     })
       .then((response) => response.json())
       .then((dataFromFetch) => {
-        console.log("data in likePost", data);
+        // console.log("data in likePost", data);
         const newData = data.map((item, i) => {
           if (item._id === dataFromFetch._id) {
             return dataFromFetch;
@@ -98,7 +98,7 @@ const Home = () => {
     })
       .then((response) => response.json())
       .then((result) => {
-        console.log("result within makeComment", result);
+        // console.log("result within makeComment", result);
         const newData = data.map((item, i) => {
           if (item._id === result._id) {
             return result;
@@ -129,7 +129,7 @@ const Home = () => {
     })
       .then((response) => response.json())
       .then((result) => {
-        console.log(result);
+        // console.log(result);
         M.toast({
           html: result.message,
           classes: "#26a69a teal lighten-1 text-#ffffff",
@@ -156,7 +156,7 @@ const Home = () => {
     })
       .then((response) => response.json())
       .then((result) => {
-        console.log("result in useEffect Home", result);
+        // console.log("result in useEffect Home", result);
         setData(result.posts);
         setLoading(false);
       })
@@ -174,7 +174,7 @@ const Home = () => {
             <div className="card home-card" key={i}>
               <h6
                 style={{
-                  marginLeft: "15px",
+                  marginLeft: "10px",
                   paddingTop: "5px",
                   fontWeight: "500",
                 }}
@@ -183,7 +183,8 @@ const Home = () => {
                 <img
                   src={item.postedBy.pic}
                   style={{
-                    maxHeight: "20px",
+                    height: "22px",
+                    width: "22px",
                     position: "absolute",
                     top: "3px",
                     left: "3px",

@@ -27,7 +27,7 @@ router.post("/signup", (req, res) => {
           password: hashed_password,
           pic,
         });
-        console.log("user within /signup before .save", user);
+        // console.log("user within /signup before .save", user);
         user
           .save()
           .then((user) => {
@@ -79,7 +79,7 @@ router.post("/login", (req, res) => {
           const { _id, name, email, followers, following, pic } = savedUser;
           savedUser.password = undefined;
           savedUser.firstName = firstName;
-          console.log("savedUser within /login", savedUser);
+          // console.log("savedUser within /login", savedUser);
           return res.status(200).json({
             message: `Welcome back, ${firstName}.`,
             token,

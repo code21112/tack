@@ -56,7 +56,7 @@ const CreateTack = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log("data within fetch CreateTack", data);
+        // console.log("data within fetch CreateTack", data);
         if (data.error) {
           setLoading(false);
           M.toast({
