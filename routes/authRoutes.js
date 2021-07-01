@@ -244,7 +244,7 @@ router.post("/forgotpassword", (req, res) => {
           html: `
           <h5>Hi ${user.firstName},</h5>
           <p>Please, use the following link to reset your password:</p>
-          <a href="${CLIENT_URL}" style="color: #546e7a">Link</a>
+          <a href="${CLIENT_URL}/resetpassword/${token}" style="color: #546e7a">Link</a>
           <br/>
           <h5>Tack team</h5>
           `,
