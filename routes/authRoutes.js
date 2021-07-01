@@ -9,6 +9,7 @@ const {
   JWT_SECRET_KEY,
   SENDGRID_API_KEY,
   EMAIL_FROM,
+  CLIENT_URL,
 } = require("./../config/keys");
 const { authMiddleware } = require("./../middlewares/authMiddleware");
 const nodemailer = require("nodemailer");
@@ -206,9 +207,9 @@ router.post("/forgotpassword", (req, res) => {
          `,
         };
 
-        const resetURL = `${req.protocol}://${req.get(
-          "host"
-        )}/resetpassword/${token}`;
+        // const resetURL = `${req.protocol}://${req.get(
+        //   "host"
+        // )}/resetpassword/${token}`;
 
         // transporter.sendMail({
         //   to: user.email,
@@ -243,7 +244,7 @@ router.post("/forgotpassword", (req, res) => {
           html: `
           <h5>Hi ${user.firstName},</h5>
           <p>Please, use the following link to reset your password:</p>
-          <a href="${resetURL}" style="color: #546e7a">Link</a>
+          <a href="${CLIENT_URL}" style="color: #546e7a">Link</a>
           <br/>
           <h5>Tack team</h5>
           `,
