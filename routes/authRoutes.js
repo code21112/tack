@@ -284,6 +284,23 @@ router.post("/forgotpassword", (req, res) => {
          `,
         };
 
+        const resetURL = `${req.protocol}://${req.get(
+          "host"
+        )}/resetpassword/${token}`;
+
+        // transporter.sendMail({
+        //   to: user.email,
+        //   from: EMAIL_FROM,
+        //   subject: `Tack - Reset your password link`,
+        //   html: `
+        //   <h5>Hi ${user.firstName},</h5>
+        //   <p>Please, use the following link to reset your password:</p>
+        //   <a href="http://localhost:3000/resetpassword/${token}" style="color: #546e7a">Link</a>
+        //   <br/>
+        //   <h5>Tack team</h5>
+        //   `,
+        // });
+
         transporter.sendMail({
           to: user.email,
           from: EMAIL_FROM,
@@ -291,11 +308,12 @@ router.post("/forgotpassword", (req, res) => {
           html: `
           <h5>Hi ${user.firstName},</h5>
           <p>Please, use the following link to reset your password:</p>
-          <a href="http://localhost:3000/resetpassword/${token}" style="color: #546e7a">Link</a>
+          <a href="https://newtack.herokuapp.com/resetpassword/${token}" style="color: #546e7a">Link</a>
           <br/>
           <h5>Tack team</h5>
           `,
         });
+
         // sgMail
         //   .send(emailData)
         //   .then((sent) => {
