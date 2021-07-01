@@ -32,7 +32,7 @@ const userSchema = new mongoose.Schema({
   pic: {
     type: String,
     default:
-      "https://res.cloudinary.com/dt1b4wuyh/image/upload/v1624899576/Tack/default-avatar_omsqin.jpg",
+      "https://res.cloudinary.com/dt1b4wuyh/image/upload/v1625169203/Tack/default-avatar_sfp0g5.jpg",
   },
   resetToken: String,
   expireToken: Date,

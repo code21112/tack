@@ -113,6 +113,13 @@ h4 {
   transform: translate(-50%, -50%);
 }
 
+#user-profile-div {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 /* Loader */
 .loader {
   display: block;

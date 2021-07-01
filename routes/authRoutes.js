@@ -23,8 +23,8 @@ const transporter = nodemailer.createTransport(
 );
 
 router.post("/signup", (req, res) => {
-  console.log("SENDGRID_API_KEY", SENDGRID_API_KEY);
-  console.log("EMAIL_FROM", EMAIL_FROM);
+  // console.log("SENDGRID_API_KEY", SENDGRID_API_KEY);
+  // console.log("EMAIL_FROM", EMAIL_FROM);
 
   const { name, email, password, pic } = req.body;
   if (!name || !email || !password) {
@@ -49,7 +49,7 @@ router.post("/signup", (req, res) => {
           .split(" ")[0]
           .replace(/^\w/, (c) => c.toUpperCase());
         user.firstName = firstName;
-        console.log("user within /signup before .save", user);
+        // console.log("user within /signup before .save", user);
         user
           .save()
           .then((user) => {

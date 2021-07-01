@@ -130,7 +130,10 @@ const UserProfile = () => {
       {loading ? (
         <Loader />
       ) : (
-        <div style={{ maxWidth: "550px", margin: "0 auto" }}>
+        <div
+          style={{ maxWidth: "550px", margin: "0 auto" }}
+          id="user-profile-div"
+        >
           <div
             style={{
               display: "flex",
@@ -150,7 +153,7 @@ const UserProfile = () => {
                 alt="User's avatar"
               />
             </div>
-            <div>
+            <div style={{ marginLeft: "15px" }}>
               <h4>{profile && profile.user.name}</h4>
 
               {/* <h4>{profile ? profile.user.name : "Loading..."}</h4> */}

@@ -6,7 +6,7 @@ const ResetPassword = () => {
   const history = useHistory();
   const [password, setPassword] = useState("");
   const { resetToken } = useParams();
-  console.log("resetToken", resetToken);
+  // console.log("resetToken", resetToken);
 
   const submitForm = () => {
     if (password.length < 8) {
