@@ -130,84 +130,6 @@ router.post("/signup", (req, res) => {
     });
 });
 
-// router.post("/signup", (req, res) => {
-//   // console.log("SENDGRID_API_KEY", SENDGRID_API_KEY);
-//   // console.log("EMAIL_FROM", EMAIL_FROM);
-
-//   const { name, email, password, pic } = req.body;
-//   if (!name || !email || !password) {
-//     return res.status(422).json({ error: "Please, fill in all the fields" });
-//   }
-//   User.findOne({ email })
-//     .then((savedUser) => {
-//       if (savedUser) {
-//         return res.status(422).json({
-//           error: "This email address is already taken. Please use another one.",
-//         });
-//       }
-//       bcrypt.hash(password, 12).then((hashed_password) => {
-//         const user = new User({
-//           name,
-//           email,
-//           password: hashed_password,
-//           pic,
-//         });
-//         const firstName = user.name
-//           .trim()
-//           .split(" ")[0]
-//           .replace(/^\w/, (c) => c.toUpperCase());
-//         user.firstName = firstName;
-//         // console.log("user within /signup before .save", user);
-//         user
-//           .save()
-//           .then((user) => {
-//             user.password = undefined;
-
-//             const emailData = {
-//               from: EMAIL_FROM,
-//               to: user.email,
-//               subject: `Tack - Welcome ${user.firstName}`,
-//               html: `
-//               <h2 style="color:white; background-color: #546e7a; text-align: center">Hi ${user.firstName}</h2>
-//               <p>Welcome to Tack!</p>
-//             <p>You can now : </p>
-//             <p> </p>
-//              <p>- Create your Tacks, </p>
-//              <p>- Discover all the Tacks,</p>
-//              <p>- Follow our users.</p>
-//              <p>We can't wait to discovering your Tacks!!</p>
-//              `,
-//             };
-
-//             sgMail
-//               .send(emailData)
-//               .then((sent) => {
-//                 // console.log("Email sent!!", sent);
-//               })
-//               .catch((err) => {
-//                 console.log("Email sent error", err);
-//                 return res.json({
-//                   message: err.message,
-//                 });
-//               });
-//             res.status(201).json({
-//               message: "You've been successfully signed up. Now, log in!",
-//               user,
-//             });
-//           })
-//           .catch((err) => {
-//             // res.status(400).json({
-//             //   message: "An error occured. Please sign up later",
-//             // });
-//             console.log(err);
-//           });
-//       });
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//     });
-// });
-
 router.post("/login", (req, res) => {
   const { email, password } = req.body;
   // console.log("email, password", email, password);
@@ -278,7 +200,7 @@ router.post("/forgotpassword", (req, res) => {
           html: `
           <h5>Hi ${user.firstName},</h5>
         //   <p>Please, use the following link to reset your password:</p>
-        //   <a href=${EMAIL_FROM}/resetpassword/${token}" style="color: #546e7a">Link</a>
+        //   <a href=https://newtack.herokuapp.com/resetpassword/${token}" style="color: #546e7a">Link</a>
         //   <br/>
         //   <h5>Tack team</h5>
          `,
@@ -301,6 +223,19 @@ router.post("/forgotpassword", (req, res) => {
         //   `,
         // });
 
+        // transporter.sendMail({
+        //   to: user.email,
+        //   from: EMAIL_FROM,
+        //   subject: `Tack - Reset your password link`,
+        //   html: `
+        //   <h5>Hi ${user.firstName},</h5>
+        //   <p>Please, use the following link to reset your password:</p>
+        //   <a href="https://newtack.herokuapp.com/resetpassword/${token}" style="color: #546e7a">Link</a>
+        //   <br/>
+        //   <h5>Tack team</h5>
+        //   `,
+        // });
+
         transporter.sendMail({
           to: user.email,
           from: EMAIL_FROM,
@@ -308,7 +243,7 @@ router.post("/forgotpassword", (req, res) => {
           html: `
           <h5>Hi ${user.firstName},</h5>
           <p>Please, use the following link to reset your password:</p>
-          <a href="https://newtack.herokuapp.com/resetpassword/${token}" style="color: #546e7a">Link</a>
+          <a href="${resetURL}" style="color: #546e7a">Link</a>
           <br/>
           <h5>Tack team</h5>
           `,
