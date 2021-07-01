@@ -34,6 +34,8 @@ const userSchema = new mongoose.Schema({
     default:
       "https://res.cloudinary.com/dt1b4wuyh/image/upload/v1624899576/Tack/default-avatar_omsqin.jpg",
   },
+  resetToken: String,
+  expireToken: Date,
 });
 
 mongoose.model("User", userSchema);

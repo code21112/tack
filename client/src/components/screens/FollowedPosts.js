@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const FollowedPosts = () => {
   const [data, setData] = useState([]);
-  const { state, dispatch } = useContext(UserContext);
+  const { state } = useContext(UserContext);
   const [comment, setComment] = useState(
     sessionStorage.getItem("comment") || ""
   );
@@ -98,7 +98,7 @@ const FollowedPosts = () => {
     })
       .then((response) => response.json())
       .then((result) => {
-        console.log("result within makeComment", result);
+        // console.log("result within makeComment", result);
         const newData = data.map((item, i) => {
           if (item._id === result._id) {
             return result;
@@ -173,7 +173,11 @@ const FollowedPosts = () => {
           {data.length ? (
             <Fragment>
               {data.map((item, i) => (
-                <div className="card home-card" key={i}>
+                <div
+                  className="card home-card"
+                  key={i}
+                  style={{ position: "relative" }}
+                >
                   <h6
                     style={{
                       marginLeft: "15px",
@@ -181,10 +185,27 @@ const FollowedPosts = () => {
                       fontWeight: "500",
                     }}
                   >
+                    <img
+                      src={item.postedBy.pic}
+                      style={{
+                        height: "22px",
+                        width: "22px",
+                        position: "absolute",
+                        top: "3px",
+                        left: "3px",
+                        borderRadius: "50%",
+                      }}
+                      alt="Avatar"
+                    />
                     {item.postedBy._id === state._id ? (
-                      <Link to="/my-profile">{item.postedBy.name}</Link>
+                      <Link to="/my-profile">
+                        {item.postedBy.name} style={{ margin: "20px" }}
+                      </Link>
                     ) : (
-                      <Link to={`/profile/${item.postedBy._id}`}>
+                      <Link
+                        to={`/profile/${item.postedBy._id}`}
+                        style={{ margin: "20px" }}
+                      >
                         {item.postedBy.name}
                       </Link>
                     )}
@@ -207,7 +228,7 @@ const FollowedPosts = () => {
                     ) : null}
                   </h6>
                   <div className="card-image">
-                    <img src={item.photo} />
+                    <img src={item.photo} alt="Tack" />
                   </div>
                   <div className="card-content">
                     {item.likes.includes(state._id) ? (

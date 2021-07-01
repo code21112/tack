@@ -1,48 +1,3 @@
-// import React from "react";
-
-// const Profile = () => {
-//   return (
-//     <div>
-//       <div
-//         style={{
-//           display: "flex",
-//           justifyContent: "space-around",
-//           margin: "10px 0px",
-//         }}
-//         className="div_test"
-//       >
-//         <div>
-//           <img
-//             src="https://www.freepngimg.com/thumb/minecraft/70718-youtube-game-video-avatar-minecraft-drawing.png"
-//             style={{
-//               height: "160px",
-//               width: "160px",
-//               borderRadius: "80px",
-//             }}
-//           />
-//         </div>
-//         <div>
-//           <h3>Name</h3>
-//           <div
-//             style={{
-//               display: "flex",
-//               justifyContent: "space-between",
-//               width: "103%",
-//             }}
-//           >
-//             <h6>40 posts</h6>
-//             <h6>followers</h6>
-//             <h6>following</h6>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Profile;
-
-// HIS VERSION
 import React, { useState, useEffect, useContext } from "react";
 import { UserContext } from "./../../App";
 import Loader from "./../utilities/Loader";
@@ -170,6 +125,7 @@ const Profile = () => {
                   width: "120px",
                   borderRadius: "60px",
                 }}
+                alt="Avatar"
               />
               {loadingPic ? (
                 <Loader />
@@ -220,7 +176,12 @@ const Profile = () => {
           <div className="gallery">
             {myTacks && myTacks.length > 0 ? (
               myTacks.map((item, i) => (
-                <img className="item" src={item.photo} key={i} />
+                <img
+                  className="item"
+                  src={item.photo}
+                  key={i}
+                  alt="User's Tack"
+                />
               ))
             ) : (
               <h6>Let's create your first Tack!</h6>

@@ -168,7 +168,7 @@ router.put("/comment", authMiddleware, (req, res) => {
     }
   )
     .populate("comments.postedBy", "_id name")
-    .populate("postedBy", "_id name")
+    .populate("postedBy", "_id name pic")
     .exec((err, result) => {
       if (err) {
         return res.status(422).json({ error: err });
@@ -215,7 +215,7 @@ router.delete("/post/delete/:postId", authMiddleware, (req, res) => {
 
 router.get("/getfollowedtacks", authMiddleware, (req, res) => {
   const posts = Post.find({ postedBy: { $in: req.user.following } })
-    .populate("postedBy", "_id name")
+    .populate("postedBy", "_id name pic")
     .populate("comments.postedBy", "_id name")
     .then((posts) => {
       posts = posts.reverse();

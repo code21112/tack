@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
   const [data, setData] = useState([]);
-  const { state, dispatch } = useContext(UserContext);
+  const { state } = useContext(UserContext);
   const [comment, setComment] = useState(
     sessionStorage.getItem("comment") || ""
   );
@@ -156,7 +156,7 @@ const Home = () => {
     })
       .then((response) => response.json())
       .then((result) => {
-        // console.log("result in useEffect Home", result);
+        console.log("result in useEffect Home", result);
         setData(result.posts);
         setLoading(false);
       })
@@ -171,10 +171,14 @@ const Home = () => {
       ) : (
         <div className="home">
           {data.map((item, i) => (
-            <div className="card home-card" key={i}>
+            <div
+              className="card home-card"
+              key={i}
+              style={{ position: "relative" }}
+            >
               <h6
                 style={{
-                  marginLeft: "10px",
+                  marginLeft: "15px",
                   paddingTop: "5px",
                   fontWeight: "500",
                 }}
@@ -190,6 +194,7 @@ const Home = () => {
                     left: "3px",
                     borderRadius: "50%",
                   }}
+                  alt="Avatar"
                 />
                 {item.postedBy._id === state._id ? (
                   <Link to="/my-profile" style={{ margin: "20px" }}>
@@ -207,12 +212,15 @@ const Home = () => {
                   <i
                     className="material-icons"
                     style={{
+                      position: "absolute",
                       color: "grey",
                       cursor: "pointer",
-                      float: "right",
+                      // float: "right",
                       marginRight: "5px",
-                      paddingBottom: "3px",
+                      // paddingBottom: "3px",
                       marginTop: "-3px",
+                      // float: "right",
+                      right: "0px",
                     }}
                     onClick={() => deletePost(item._id)}
                   >
@@ -221,75 +229,9 @@ const Home = () => {
                 ) : null}
               </h6>
               <div className="card-image">
-                <img src={item.photo} />
+                <img src={item.photo} alt="Tack" />
               </div>
               <div className="card-content">
-                {/* <i className="material-icons" style={{ color: "red" }}>
-              favorite
-            </i> */}
-
-                {/* {!item.likes.includes(state._id) ? (
-              <i
-                className="material-icons"
-                style={{
-                  color: "#546e7a",
-                  marginLeft: "5px",
-                  cursor: "pointer",
-                }}
-                onClick={() => likePost(item._id)}
-              >
-                thumb_up
-              </i>
-            ) : (
-              <i
-                className="material-icons"
-                style={{
-                  color: "#546e7a",
-                  marginLeft: "2px",
-                  cursor: "pointer",
-                }}
-                onClick={() => unlikePost(item._id)}
-              >
-                thumb_down
-              </i>
-            )} */}
-
-                {/* {item.likes.includes(state._id) ? (
-              <>
-                <i
-                  className="material-icons"
-                  style={{
-                    color: "red",
-                    cursor: "pointer",
-                  }}
-                >
-                  favorite
-                </i>
-                ,
-                <i
-                  className="material-icons"
-                  style={{
-                    color: "#546e7a",
-                    cursor: "pointer",
-                  }}
-                  onClick={() => unlikePost(item._id)}
-                >
-                  thumb_down
-                </i>
-              </>
-            ) : (
-              <i
-                className="material-icons"
-                style={{
-                  color: "red",
-                  cursor: "pointer",
-                }}
-                onClick={() => likePost(item._id)}
-              >
-                favorite_border
-              </i>
-            )} */}
-
                 {item.likes.includes(state._id) ? (
                   <>
                     <i

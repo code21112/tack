@@ -1,13 +1,12 @@
-import React, { useState, useContext } from "react";
-import { Link, useHistory } from "react-router-dom";
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import M from "materialize-css";
-import { UserContext } from "./../../App";
+// import { UserContext } from "./../../App";
 
-const Login = () => {
-  const { dispatch } = useContext(UserContext);
+const ForgotPassword = () => {
+  //   const { state, dispatch } = useContext(UserContext);
   const history = useHistory();
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
 
   const submitForm = () => {
     // if (
@@ -25,20 +24,13 @@ const Login = () => {
       });
     }
 
-    if (password.length < 8) {
-      return M.toast({
-        html: "Your password cannot be less than 8 characters long.",
-        classes: "#e53935 red darken-1",
-      });
-    }
-    fetch("/login", {
+    fetch("/forgotpassword", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
         email,
-        password,
       }),
     })
       .then((response) => response.json())
@@ -48,15 +40,15 @@ const Login = () => {
           M.toast({ html: data.error, classes: "#e53935 red darken-1" });
         } else {
           // console.log(data);
-          dispatch({ type: "USER", payload: data.user });
-          localStorage.setItem("jwt", data.token);
-          localStorage.setItem("user", JSON.stringify(data.user));
+          //   dispatch({ type: "USER", payload: data.user });
+          //   localStorage.setItem("jwt", data.token);
+          //   localStorage.setItem("user", JSON.stringify(data.user));
 
           M.toast({
             html: data.message,
             classes: "#26a69a teal lighten-1 text-#ffffff",
           });
-          history.push("/");
+          history.push("/login");
         }
       })
       .catch((err) => {
@@ -68,34 +60,26 @@ const Login = () => {
     <div className="my-card">
       <div className="card auth-card input-field">
         <h2>Tack</h2>
+        <h5>Forgot your password?</h5>
+        <h5>No need to worry.</h5>
+        <h5 style={{ marginBottom: "20px" }}>Let's reset it.</h5>
+        <h6>Fill out the email field to receive a reset link.</h6>
         <input
           type="text"
           placeholder="Your email address"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-        <input
-          type="password"
-          placeholder="Your password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
 
         <button
           className="btn waves-effect waves-light #546e7a blue-grey darken-1"
           onClick={() => submitForm()}
         >
-          Login
+          Send via email
         </button>
-        <h5>
-          <Link to="/signup">Create your account</Link>
-        </h5>
-        <h6>
-          <Link to="/forgotpassword">Forgot your password?</Link>
-        </h6>
       </div>
     </div>
   );
 };
 
-export default Login;
+export default ForgotPassword;

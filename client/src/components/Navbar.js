@@ -12,7 +12,7 @@ const Navbar = () => {
         <li key="1">
           {/* <Link to="/tack/create">New tack</Link> */}
           <Link to="/tack/create">
-            <i class="medium material-icons" style={{ color: "#4db6ac" }}>
+            <i className="medium material-icons" style={{ color: "#4db6ac" }}>
               add_circle_outline
             </i>
           </Link>
@@ -20,7 +20,7 @@ const Navbar = () => {
         <li key="2">
           {/* <Link to="/my-followed-posts">Followed</Link> */}
           <Link to="/my-followed-posts">
-            <i class="medium material-icons" style={{ color: "#546e7a" }}>
+            <i className="medium material-icons" style={{ color: "#546e7a" }}>
               people
             </i>
           </Link>
@@ -30,7 +30,7 @@ const Navbar = () => {
           {/* <Link to="/my-profile">Profile</Link> */}
 
           <Link to="/my-profile" id="profile-link">
-            <i class="medium material-icons" style={{ color: "#546e7a" }}>
+            <i className="medium material-icons" style={{ color: "#546e7a" }}>
               account_circle
             </i>
           </Link>

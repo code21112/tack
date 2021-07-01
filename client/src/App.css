@@ -31,6 +31,13 @@ h4 {
   margin: 10px auto;
 }
 
+.auth-card-large {
+  padding: 20px;
+  text-align: center;
+  max-width: 500px;
+  margin: 10px auto;
+}
+
 /* label underline focus color */
 /* .input-field input[type="text"]:focus { */
 /* border-bottom: 1px solid #000;

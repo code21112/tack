@@ -28,10 +28,11 @@ const CreateTack = () => {
         .then((res) => res.json())
         .then((data) => {
           if (data.error) {
+            setLoading(false);
             M.toast({ html: data.error, classes: "#c62828 red darken-3" });
           } else {
             M.toast({
-              html: "Created post Successfully",
+              html: "Tack created successfully",
               classes: "#43a047 green darken-1",
             });
             history.push("/");
@@ -59,10 +60,18 @@ const CreateTack = () => {
         // console.log("data within fetch CreateTack", data);
         if (data.error) {
           setLoading(false);
-          M.toast({
-            html: data.error.message,
-            classes: "#c62828 red darken-3",
-          });
+          console.log("data.error", data.error);
+          if ((data.error.message = "Missing required parameter - file")) {
+            M.toast({
+              html: "Hum...you forgot the pic!",
+              classes: "#c62828 red darken-3",
+            });
+          } else {
+            M.toast({
+              html: data.error.message,
+              classes: "#c62828 red darken-3",
+            });
+          }
         } else {
           setUrl(data.url);
         }

@@ -29,7 +29,7 @@ const UserProfile = () => {
         setProfile(data);
         setLoading(false);
       });
-  }, []);
+  }, [userId]);
 
   const followUser = () => {
     fetch("/follow", {
@@ -147,6 +147,7 @@ const UserProfile = () => {
                   width: "160px",
                   borderRadius: "80px",
                 }}
+                alt="User's avatar"
               />
             </div>
             <div>
@@ -187,7 +188,12 @@ const UserProfile = () => {
           <div className="gallery">
             {profile && profile.posts.length > 0 ? (
               profile.posts.map((item, i) => (
-                <img className="item" src={item.photo} key={i} />
+                <img
+                  className="item"
+                  src={item.photo}
+                  key={i}
+                  alt="User's Tack"
+                />
               ))
             ) : (
               <h6>Let's create your first Tack!</h6>
