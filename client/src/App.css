@@ -2,7 +2,7 @@
 /* @import url("https://fonts.googleapis.com/css2?family=Anton&family=Big+Shoulders+Stencil+Display:wght@500;700;800&display=swap"); */
 @import url("https://fonts.googleapis.com/css2?family=Anton&family=Big+Shoulders+Stencil+Display:wght@500;700;800&family=Kaushan+Script&display=swap");
 
-/* body {
+body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
@@ -10,7 +10,7 @@
 
 main {
   flex: 1 0 auto;
-} */
+}
 
 a {
   color: black !important;
@@ -179,15 +179,15 @@ h4 {
 
 .footer {
   background-color: white;
-  margin-top: 10rem;
+  /* margin-top: 10rem; */
   /* margin-top: 10rem; */
   padding: 1rem;
   /* position: absolute; */
-  /* position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 100%; */
+  /* position: fixed; */
+  /* bottom: 0; */
+  /* left: 0;
+  right: 0; */
+  width: 100%;
   text-align: center;
   /* height: 60px; */
   box-shadow: 2px 2px black, -1em 0 0.3em #44494b;

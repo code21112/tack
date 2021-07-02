@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 import M from "materialize-css";
 import Loader from "./../utilities/Loader";
+import Footer from "./../Footer";
 
 const Signup = () => {
   const history = useHistory();
@@ -102,55 +103,61 @@ const Signup = () => {
   };
 
   return (
-    <div className="my-card">
-      <div className="card auth-card input-field">
-        <h2>Tack</h2>
-        <input
-          type="text"
-          placeholder="Your name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="Your email address"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="Your password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <div className="file-field input-field">
-          <div className="btn">
-            <span>Upload</span>
-            <input type="file" onChange={(e) => setImage(e.target.files[0])} />
+    <>
+      <div className="my-card">
+        <div className="card auth-card input-field">
+          <h2>Tack</h2>
+          <input
+            type="text"
+            placeholder="Your name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+          <input
+            type="text"
+            placeholder="Your email address"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <input
+            type="password"
+            placeholder="Your password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <div className="file-field input-field">
+            <div className="btn">
+              <span>Upload</span>
+              <input
+                type="file"
+                onChange={(e) => setImage(e.target.files[0])}
+              />
+            </div>
+            <div className="file-path-wrapper">
+              <input
+                className="file-path validate"
+                type="text"
+                placeholder="Upload your profile pic (optional)"
+              />
+            </div>
           </div>
-          <div className="file-path-wrapper">
-            <input
-              className="file-path validate"
-              type="text"
-              placeholder="Upload your profile pic (optional)"
-            />
-          </div>
-        </div>
 
-        <button
-          className="btn waves-effect waves-light #546e7a blue-grey darken-1"
-          onClick={() => submitForm()}
-        >
-          Signup
-        </button>
-        {loading ? <Loader /> : null}
-        {showSignupLink ? (
-          <h5>
-            <Link to="/login">Already have an account ?</Link>
-          </h5>
-        ) : null}
+          <button
+            className="btn waves-effect waves-light #546e7a blue-grey darken-1"
+            onClick={() => submitForm()}
+          >
+            Signup
+          </button>
+          {loading ? <Loader /> : null}
+          {showSignupLink ? (
+            <h5>
+              <Link to="/login">Already have an account ?</Link>
+            </h5>
+          ) : null}
+        </div>
       </div>
-    </div>
+      <Footer />
+    </>
   );
 };
 

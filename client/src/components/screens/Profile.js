@@ -108,7 +108,11 @@ const Profile = () => {
       {loading ? (
         <Loader />
       ) : (
-        <div style={{ maxWidth: "550px", margin: "0 auto" }} id="profile-div">
+        <div
+          style={{ maxWidth: "550px", margin: "0 auto" }}
+          id="profile-div"
+          className="main"
+        >
           <div
             style={{
               display: "flex",
@@ -173,7 +177,7 @@ const Profile = () => {
               </div>
             </div>
           </div>
-          <div className="gallery">
+          <div className="gallery" style={{ position: "relative" }}>
             {myTacks && myTacks.length > 0 ? (
               myTacks.map((item, i) => (
                 <img

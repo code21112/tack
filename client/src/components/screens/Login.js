@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { Link, useHistory } from "react-router-dom";
 import M from "materialize-css";
 import { UserContext } from "./../../App";
+import Footer from "./../Footer";
 
 const Login = () => {
   const { dispatch } = useContext(UserContext);
@@ -65,39 +66,42 @@ const Login = () => {
   };
 
   return (
-    <div className="my-card main">
-      <div
-        className="card auth-card input-field"
-        style={{ marginBottom: "10rem" }}
-      >
-        <h2>Tack</h2>
-        <input
-          type="text"
-          placeholder="Your email address"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="Your password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-
-        <button
-          className="btn waves-effect waves-light #546e7a blue-grey darken-1"
-          onClick={() => submitForm()}
+    <>
+      <div className="my-card main">
+        <div
+          className="card auth-card input-field"
+          style={{ marginBottom: "10rem" }}
         >
-          Login
-        </button>
-        <h5>
-          <Link to="/signup">Create your account</Link>
-        </h5>
-        <h6>
-          <Link to="/forgotpassword">Forgot your password?</Link>
-        </h6>
+          <h2>Tack</h2>
+          <input
+            type="text"
+            placeholder="Your email address"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <input
+            type="password"
+            placeholder="Your password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+
+          <button
+            className="btn waves-effect waves-light #546e7a blue-grey darken-1"
+            onClick={() => submitForm()}
+          >
+            Login
+          </button>
+          <h5>
+            <Link to="/signup">Create your account</Link>
+          </h5>
+          <h6>
+            <Link to="/forgotpassword">Forgot your password?</Link>
+          </h6>
+        </div>
       </div>
-    </div>
+      <Footer />
+    </>
   );
 };
 
