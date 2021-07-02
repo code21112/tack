@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="footer">
+    <div className="page-footer footer">
       {/* <p style={{ "text-align": "center", justifyContent: "space-between" }}> */}
       <p>
         <span>Tack</span> - 2021 Copyright. All Rights Reserved.

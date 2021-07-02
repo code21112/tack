@@ -65,7 +65,7 @@ const Login = () => {
   };
 
   return (
-    <div className="my-card">
+    <div className="my-card main">
       <div
         className="card auth-card input-field"
         style={{ marginBottom: "10rem" }}
