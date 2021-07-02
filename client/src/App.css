@@ -2,7 +2,7 @@
 /* @import url("https://fonts.googleapis.com/css2?family=Anton&family=Big+Shoulders+Stencil+Display:wght@500;700;800&display=swap"); */
 @import url("https://fonts.googleapis.com/css2?family=Anton&family=Big+Shoulders+Stencil+Display:wght@500;700;800&family=Kaushan+Script&display=swap");
 
-body {
+/* body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
@@ -10,7 +10,7 @@ body {
 
 main {
   flex: 1 0 auto;
-}
+} */
 
 a {
   color: black !important;
