@@ -2,10 +2,11 @@
 /* @import url("https://fonts.googleapis.com/css2?family=Anton&family=Big+Shoulders+Stencil+Display:wght@500;700;800&display=swap"); */
 @import url("https://fonts.googleapis.com/css2?family=Anton&family=Big+Shoulders+Stencil+Display:wght@500;700;800&family=Kaushan+Script&display=swap");
 
-html,
+/* html,
 body {
   height: 100%;
-}
+} */
+
 a {
   color: black !important;
 }
@@ -26,6 +27,7 @@ h4 {
 
 .my-card {
   margin-top: 30px;
+  min-height: 95vh;
 }
 
 .auth-card {
@@ -167,15 +169,17 @@ h4 {
 } */
 
 .footer {
-  margin-top: 1rem;
+  margin-top: 10rem;
+  /* margin-top: 10rem; */
   /* padding: 1rem; */
-  position: absolute;
+  /* position: absolute; */
+  position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
   width: 100%;
   text-align: center;
-  height: 60px;
+  /* height: 60px; */
   box-shadow: 2px 2px black, -1em 0 0.3em #44494b;
 }
 

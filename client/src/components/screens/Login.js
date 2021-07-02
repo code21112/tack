@@ -66,7 +66,10 @@ const Login = () => {
 
   return (
     <div className="my-card">
-      <div className="card auth-card input-field">
+      <div
+        className="card auth-card input-field"
+        style={{ marginBottom: "10rem" }}
+      >
         <h2>Tack</h2>
         <input
           type="text"
