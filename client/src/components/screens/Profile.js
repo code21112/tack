@@ -185,6 +185,7 @@ const Profile = () => {
                   src={item.photo}
                   key={i}
                   alt="User's Tack"
+                  style={{ height: "80px", width: "80px" }}
                 />
               ))
             ) : (
